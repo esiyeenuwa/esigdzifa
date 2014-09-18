@@ -1,1 +1,15 @@
-<p>This is the partial for view 1.</p>
+
+	<p>This is the partial for view 1.</p>
+
+
+<div ng-app="" ng-controller="getInput">
+
+		<div> Gender (f/m)<input type="text" maxlength="1" ng-model="gender"></div><br>
+		
+		<div>Date<input type="date" ng-model="birthdate"></div><br>
+		
+			
+		<div>Your Akan Name is: <p ng-bind="generateAkanName()">{{generateAkanName()}}<p></div>
+		<div>Hi There, Your Akan Name is: <p ng-bind="generateDay()">{{generateDay()}}</p></div>
+
+</div>
