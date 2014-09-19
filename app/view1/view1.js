@@ -15,7 +15,8 @@ angular.module('myApp.view1', ['ngRoute'])
 var d = -1;
     var n = -1;
 	
-	
+	var mygender="0";
+	var mybirthdate="0";
 
  
 
@@ -128,6 +129,7 @@ function getInput($scope){
 
   };
 
+  
   // Load the SDK asynchronously
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -144,6 +146,8 @@ function getInput($scope){
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
+        'Thanks for logging in, ' + response.name + '!'+response.gender+'!'+response.birthday;
+		mygender=response.gender;
+		mybirthdate=response.birthday;
     });
   }
