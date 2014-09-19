@@ -17,7 +17,7 @@ var d = -1;
 	
 	var mygender="0";
 	var mybirthdate="0";
-
+	var name="no name yet";
  
 
 
@@ -25,16 +25,16 @@ var d = -1;
 function getInput($scope){
 
 	$scope.gender="f";
-	$scope.birthdate="2014-09-09";
-	
-	$scope.generateAkanName= function(){ console.log("generateAkan name called and birthday value is: ",$scope.birthdate); return $scope.birthdate};
+	$scope.birthdate="2015-01-01";
+	$scope.name=name;
+	$scope.generateAkanName= function(){ console.log("generateAkan name called and birthday value is: ",$scope.birthdate); return $scope.name};
 		
 	
-	$scope.generateDay= function(){
+		$scope.generateDay= function(){
 	
 		//this idea was gotten from w3schools
 		d = new Date($scope.birthdate);
-		if($scope.gender=="f"){
+		if(mygender=="female"){
 			var weekdayF = new Array(7);
 		    weekdayF[0] = "Esi";
 		    weekdayF[1] = "Adwoa";
@@ -50,7 +50,7 @@ function getInput($scope){
 			return $scope.numDay
 		}
 		
-			else if($scope.gender=="m"){
+			else if(mygender=="male"){
 			var weekdayM = new Array(7);
 		    weekdayM[0] = "Kwesi";
 		    weekdayM[1] = "Kwadwo";
@@ -68,6 +68,7 @@ function getInput($scope){
 
 	}
 }
+
 
 
   // This is called with the results from from FB.getLoginStatus().
@@ -146,8 +147,9 @@ function getInput($scope){
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!'+response.gender+'!'+response.birthday;
+        'Thanks for logging in, ' + response.name + '!';
 		mygender=response.gender;
 		mybirthdate=response.birthday;
+		name=response.name;
     });
   }
