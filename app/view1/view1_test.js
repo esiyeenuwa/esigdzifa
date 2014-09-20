@@ -31,7 +31,7 @@ describe('myApp.view1 module', function() {
 
   
 
- 
+ //shoud generate Akan Name for date 2014-09-09
   describe('view1 controller', function(){
 
    beforeEach(module('myApp.view1'));
@@ -50,6 +50,7 @@ describe('myApp.view1 module', function() {
 
   });
 
+  
     describe('view1 controller', function(){
 
    beforeEach(module('myApp.view1'));
@@ -67,3 +68,23 @@ describe('myApp.view1 module', function() {
     }));
 
   });
+  
+  //it should generate the male name for someone who is born on 2014-09-09 
+   describe('view1 controller', function(){
+
+   beforeEach(module('myApp.view1'));
+  
+    it('should generate an akan name for a male and with 2014-09-09', inject(function($controller) {
+      //spec body
+	  var myscope = {
+				birthdate : new Date("2014-9-9"),
+				gender : "male"},
+      ctrl = $controller('view1Ctrl', {$scope:myscope});
+
+	expect(myscope.generateDay).toBeDefined();
+	expect(myscope.generateDay()).toBe("Kwabena");
+      
+    }));
+
+  });
+
