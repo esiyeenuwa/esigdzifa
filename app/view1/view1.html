@@ -8,13 +8,16 @@
 <body>
 
 
-	<div id="status">
-	</div>
 
 
 	<div ng-app="" ng-controller="getInput">
 
-			
+		
+	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>		
 			<br/><br/>
 			<div>Please choose your date of birth: <br><input type="date" ng-model="birthdate"></div>
 			
@@ -28,6 +31,8 @@
 	  data-width="450"
 	  data-show-faces="true">
 	</div>
+	
+
 
 <body>
 

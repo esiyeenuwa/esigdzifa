@@ -1,5 +1,7 @@
 'use strict';
 
+
+
 var EsiApp=angular.module('myApp.view1', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -25,7 +27,7 @@ var d = -1;
 function getInput($scope){
 
 	$scope.gender="f";
-	$scope.birthdate="2015-01-01";
+	$scope.birthdate="1992-05-10";
 	$scope.name=name;
 	$scope.generateAkanName= function(){ console.log("generateAkan name called and birthday value is: ",$scope.birthdate); return $scope.name};
 		
@@ -143,13 +145,21 @@ function getInput($scope){
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
   function testAPI() {
+  
+  
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' + response.name + '!';
 		mygender=response.gender;
-		mybirthdate=response.birthday;
+		//mybirthdate=response.birthday;
 		name=response.name;
     });
   }
+  
+  
+  
+  
+  
+  
